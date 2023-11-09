@@ -1,17 +1,38 @@
 apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
-  name: beta-boys # CHANGE THIS! This will be the name of your application
+  name: beta-boys
   namespace: leesah-quiz
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "256M"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
   labels:
     team: leesah-quiz
 spec:
   image: {{image}}
+  port: 8080
+  strategy:
+    type: Recreate
+  liveness:
+    initialDelay: 30
+    path: isalive
+  readiness:
+    initialDelay: 30
+    path: isready
   replicas:
     max: 1
     min: 1
   kafka:
     pool: nav-dev
+  prometheus:
+    enabled: true
+    path: /metrics
+  gcp:
+    sqlInstances:
+      - type: POSTGRES_14
+        databases:
+          - envVarPrefix: DB
+            name: beta-boys
   env:
     - name: QUIZ_TOPIC
       value: "leesah-quiz.leesah-rapid-v2"

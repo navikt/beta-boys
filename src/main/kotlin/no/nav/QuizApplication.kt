@@ -34,7 +34,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
 
     private fun handleRegisterTeam(question: Question) {
         //TODO("Her må du skrive kode ;)")
-        
+        logger.log("WAT")
         answer(question.category, questionId = question.id(), "fafafa")
     }
 

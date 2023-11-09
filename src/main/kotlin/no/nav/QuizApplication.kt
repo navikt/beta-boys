@@ -65,21 +65,27 @@ class QuizApplication(private val teamName: String, database: Database? = null):
     private fun handleQ3(question: Question) {
         //TODO("Her må du skrive kode ;)")
         if (question.question == "På hvilken nettside finner man informasjon om rekruttering til NAV IT?"){
-            answer(question.category, questionId = question.id(), "detsombetyrnoe.no")
+            answer(question.category, questionId = question.id(), "https://www.detsombetyrnoe.no\n")
         }
 
         if (question.question == "Hva heter designsystemet vårt?"){
-            answer(question.category, questionId = question.id(), "detsombetyrnoe.no")
+            answer(question.category, questionId = question.id(), "Aksel")
         }
         if (question.question == "Hvor mye er 1G per 1. mai 2023?"){
             answer(question.category, questionId = question.id(), "118620")
         }
-        if (question.question == "Hva heter designsystemet vårt?"){
-            answer(question.category, questionId = question.id(), "detsombetyrnoe.no")
+        if (question.question == "Hvor har vi kontor?"){
+            answer(question.category, questionId = question.id(), "Fyrstikkalléen 1")
         }
-        if (question.question == "Hva heter designsystemet vårt?"){
-            answer(question.category, questionId = question.id(), "detsombetyrnoe.no")
+        if (question.question == "Hva heter NAV-direktøren?"){
+            answer(question.category, questionId = question.id(), "Hans Christian Holte")
         }
+
+        if (question.question == "Hva heter applikasjonsplattformen til NAV?"){
+            answer(question.category, questionId = question.id(), "nais")
+        }
+
+
     }
 
 

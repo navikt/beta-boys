@@ -1,6 +1,5 @@
 package no.nav
 
-import com.notkamui.keval.Keval
 import no.nav.db.Database
 import no.nav.quizrapid.*
 import no.nav.rapid.Answer
@@ -43,8 +42,22 @@ class QuizApplication(private val teamName: String, database: Database? = null):
 
     private fun handleQ2(question: Question) {
         //TODO("Her må du skrive kode ;)")
-        var ans = Keval.eval(question.question).toInt()
-        answer(question.category, questionId = question.id(), ans.toString())
+        val regex = """(\d+) (.) (\d+)""".toRegex()
+        val matchResult = regex.find(question.question)!!
+        val (n1, sign, n2) = matchResult.destructured
+
+        if (sign == "*") {
+            answer(question.category, questionId = question.id(), (n1.toInt() * n2.toInt()).toString())
+        }
+        if (sign == "-") {
+            answer(question.category, questionId = question.id(), (n1.toInt() - n2.toInt()).toString())
+        }
+        if (sign == "+") {
+            answer(question.category, questionId = question.id(), (n1.toInt() + n2.toInt()).toString())
+        }
+        if (sign == "/") {
+            answer(question.category, questionId = question.id(), (n1.toInt() / n2.toInt()).toString())
+        }
     }
 
 

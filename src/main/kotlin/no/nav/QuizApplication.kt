@@ -6,6 +6,8 @@ import no.nav.rapid.Answer
 import no.nav.rapid.Assessment
 import no.nav.rapid.Question
 
+import com.notkamui.libs.*
+
 
 /**
  * QuizApplication
@@ -17,6 +19,8 @@ class QuizApplication(private val teamName: String, database: Database? = null):
     override fun handle(question: Question) {
         logger.log(question)
         if (question.category == "team-registration") handleRegisterTeam(question)
+        if (question.category == "arithmetic") handleQ2(question)
+        
     }
 
 
@@ -34,8 +38,15 @@ class QuizApplication(private val teamName: String, database: Database? = null):
 
     private fun handleRegisterTeam(question: Question) {
         //TODO("Her må du skrive kode ;)")
-        logger.log("WAT")
         answer(question.category, questionId = question.id(), "fafafa")
     }
+
+    private fun handleQ2(question: Question) {
+        //TODO("Her må du skrive kode ;)")
+        ans = Keval.eval(question.question)
+        answer(question.category, questionId = question.id(), ans)
+    }
+
+
 
 }

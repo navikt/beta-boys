@@ -11,7 +11,7 @@ internal class QuizApplicationTest {
 
 
     @Test
-    @Disabled
+
     fun `håndterer team-registration`() {
         val dinHex = "Din-Hex"
         val qa = QuizApplication(dinHex)

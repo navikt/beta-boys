@@ -99,4 +99,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-params:$junitJupiterVersion")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
     testImplementation("org.awaitility:awaitility:4.2.0")
+
+    implementation("com.notkamui.libs:keval:0.9.0")
 }
+

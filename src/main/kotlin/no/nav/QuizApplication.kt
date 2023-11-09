@@ -1,12 +1,12 @@
 package no.nav
 
+import com.notkamui.keval.Keval
 import no.nav.db.Database
 import no.nav.quizrapid.*
 import no.nav.rapid.Answer
 import no.nav.rapid.Assessment
 import no.nav.rapid.Question
 
-import com.notkamui.libs.*
 
 
 /**
@@ -43,8 +43,8 @@ class QuizApplication(private val teamName: String, database: Database? = null):
 
     private fun handleQ2(question: Question) {
         //TODO("Her må du skrive kode ;)")
-        ans = Keval.eval(question.question)
-        answer(question.category, questionId = question.id(), ans)
+        var ans = Keval.eval(question.question).toInt()
+        answer(question.category, questionId = question.id(), ans.toString())
     }
 
 

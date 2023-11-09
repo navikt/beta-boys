@@ -19,7 +19,9 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         logger.log(question)
         if (question.category == "team-registration") handleRegisterTeam(question)
         if (question.category == "arithmetic") handleQ2(question)
-        
+        if (question.category == "NAV") handleQ3(question)
+
+
     }
 
 
@@ -57,6 +59,26 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         }
         if (sign == "/") {
             answer(question.category, questionId = question.id(), (n1.toInt() / n2.toInt()).toString())
+        }
+    }
+
+    private fun handleQ3(question: Question) {
+        //TODO("Her må du skrive kode ;)")
+        if (question.question == "På hvilken nettside finner man informasjon om rekruttering til NAV IT?"){
+            answer(question.category, questionId = question.id(), "detsombetyrnoe.no")
+        }
+
+        if (question.question == "Hva heter designsystemet vårt?"){
+            answer(question.category, questionId = question.id(), "detsombetyrnoe.no")
+        }
+        if (question.question == "Hvor mye er 1G per 1. mai 2023?"){
+            answer(question.category, questionId = question.id(), "118620")
+        }
+        if (question.question == "Hva heter designsystemet vårt?"){
+            answer(question.category, questionId = question.id(), "detsombetyrnoe.no")
+        }
+        if (question.question == "Hva heter designsystemet vårt?"){
+            answer(question.category, questionId = question.id(), "detsombetyrnoe.no")
         }
     }
 
